@@ -1,0 +1,23 @@
+---
+- hosts: all
+  become: true
+       
+  tasks:
+  - name: "add user itescia"
+    user:
+       name: "{{ item.name }}"
+    with_items: 
+       - { name: itescia }
+       - { name: itesciadmin }
+       - { name: sangeerthan }
+   
+
+
+  - name: "install package"
+    package:
+       name: "{{ item.package }}"
+       state: present
+    with_items:
+       - { package: vim }
+       - { package: htop }
+ 
