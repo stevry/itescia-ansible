@@ -1,6 +1,6 @@
 ---
  - name: "add users"
-     user:
+   user:
        name: "{{ item }}"
        create_home: yes
        shell: /bin/bash
