@@ -11,4 +11,3 @@
     with_items: 
         - create_user.yml    
         - deploy_package.yml 
-        - deploy_ssh.yml

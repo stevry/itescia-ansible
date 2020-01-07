@@ -1,2 +1,7 @@
 ---
 # vars file for roles/system
+ vars:
+         users: [sangeerthan, itesciadmin, itescia, toto, tata, tutu]
+         package: [vim, htop]
+
+
