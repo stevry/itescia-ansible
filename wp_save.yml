@@ -3,5 +3,11 @@
 
 
   tasks:
-  - name: "copy wp files to backup"
-    copy: /var/www/client1.tar.gz root@10.0.0.101:/var/backups
+  - name: "fetch ssh key"
+    fetch:
+         src: ~/.ssh/id_rsa.pub
+         dest: /tmp
+
+  - name: "copy ssh key"
+    copy: /tmp/id_rsa.pub itescia@10.0.0.101:/tmp 
+    
