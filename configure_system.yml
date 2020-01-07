@@ -1,23 +1,29 @@
 ---
 - hosts: all
   become: true
-       
+  vars:
+          users: [itescia, itesciadmin, sangeerthan, test]
+          package: [htop, vim]
+
   tasks:
   - name: "add user itescia"
     user:
-       name: "{{ item.name }}"
-    with_items: 
-       - { name: itescia }
-       - { name: itesciadmin }
-       - { name: sangeerthan }
+       name: "{{ item }}"
+       create_home: yes
+    with_items: "{{ users }}"
    
 
 
   - name: "install package"
     package:
-       name: "{{ item.package }}"
+       name: "{{ item }}"
        state: present
-    with_items:
-       - { package: vim }
-       - { package: htop }
+    with_items: "{{ package }}"
  
+  - name: "ssh-key"
+    authorized_key:
+            user: "{{ item }}"
+            key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+            exclusive: true
+    with_items: "{{ users }}"
+
