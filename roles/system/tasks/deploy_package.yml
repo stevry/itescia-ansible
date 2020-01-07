@@ -1,7 +1,7 @@
 ---
-  - name: "install package"
-    package:
+ - name: "install package"
+   package:
        name: "{{ item }}"
        state: present
-    with_items: "{{ package }}"
+   with_items: "{{ package }}"
 
