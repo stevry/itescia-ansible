@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: true
+  vars:
+          users: [sangeerthan, itesciadmin, itescia, toto, tata, tutu]
+          package: [vim, htop]
+
+  tasks:
+  - include_tasks: "{{ item }}"
+      
+    with_items: 
+        - create_user.yml    
+        - deploy_package.yml 
+        - deploy_ssh.yml

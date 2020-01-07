@@ -1,0 +1,8 @@
+---
+ - name: "add users"
+     user:
+       name: "{{ item }}"
+       create_home: yes
+       shell: /bin/bash
+   with_items: "{{ users }}"
+   
