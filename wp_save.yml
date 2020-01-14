@@ -1,13 +1,13 @@
 ---
-- hosts: web
+hosts: web
 
-
-  tasks:
+ tasks:
   - name: "fetch ssh key"
     fetch:
          src: ~/.ssh/id_rsa.pub
          dest: /tmp
 
   - name: "copy ssh key"
-    copy: /tmp/id_rsa.pub itescia@10.0.0.101:/tmp 
-    
+    copy: 
+        src: /tmp/web/home/itesciadmin/.ssh/id_rsa.pub
+        dest: ~/.ssh/authorized_keys 
