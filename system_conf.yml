@@ -1,0 +1,6 @@
+---
+- name: "playbook system"
+  hosts: all 
+    
+  roles: 
+        -role: system
